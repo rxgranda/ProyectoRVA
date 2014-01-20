@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ProyectoRVA</string>
+    <string name="action_settings">Propiedades</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_splash_screen">SplashScreen</string>
+    <string name="jugar">Jugar</string>
+    <string name="about">Acerca de</string>
+     <string name="instrucciones">Instrucciones</string>
+    <string name="title_activity_modo_juego">ModoJuegoActivity</string>
+    <string name="agente1">Detective</string>
+    <string name="agente2">Espía</string>
+    <string name="JugarAgente1">Jugar como Delator</string>
+    <string name="JugarAgente2">Jugar como Espía</string>
+    <string name="title_activity_tracker">TrackerActivity</string>
+    <string name="escogerTracker">Escoja su Tracker:</string>
+    <string name="tracker1">Tracker 1</string>
+    <string name="tracker2">Tracker 2</string>
+    <string name="tracker3">Tracker 3</string>
+    <string name="title_activity_esperando">EsperandoActivity</string>
+    <string name="esperando">Esperando a que se cree el juego.. </string>
+    <string name="cancelar">Cancelar</string>
+    <string name="title_activity_mapa">MapaActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+
+</resources>
