@@ -127,7 +127,7 @@ public class EsperandoActivity extends Activity {
 				
 				Intent mainIntent = new Intent().setClass(EsperandoActivity.this, MapTestActivity.class);
 	               startActivity(mainIntent);
-	               finish();	}										
+	               finish();	return true;}										
 				
 			}
 			return false;

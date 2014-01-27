@@ -11,6 +11,9 @@ public class Player {
 	public final static String ESTADO_TAG="estado";
 	public final static String ID_JUGADOR_TAG="id_jugador";
 	public final static String INICIO_JUEGO_TAG="inicio";
+	public final static String JUGADORES_TAG="jugadores";
+	public final static String X_TAG="x";
+	public final static String Y_TAG="y";
 	//JSON
 	public final static String ESTADO_OK="1";
 	public final static String ESTADO_WRONG="0";

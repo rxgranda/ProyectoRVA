@@ -3,12 +3,13 @@ import java.io.*;
 import java.net.*; 
 
 import android.os.SystemClock;
+import android.util.Log;
 
 import com.example.proyectorva.Player;
 public class TCPServer {    
 	ServerSocket welcomeSocket=null;
-	private String estadoJuego;
-	private String accionJugador;
+	private String estadoJuego="";
+	private String accionJugador="Hola";
 	public  String  openServer() throws Exception       {
 		String clientSentence;
 		String capitalizedSentence;
@@ -21,7 +22,7 @@ public class TCPServer {
 			clientSentence = inFromClient.readLine();
 			System.out.println("Received: " + clientSentence);
 			capitalizedSentence = clientSentence+'\n';
-			outToClient.writeBytes(capitalizedSentence);
+			outToClient.writeBytes(capitalizedSentence+"\0");
 			return clientSentence;
 		}
 	}
@@ -35,9 +36,12 @@ public class TCPServer {
 			BufferedReader inFromClient =
 					new BufferedReader(new InputStreamReader(connectionSocket.getInputStream()));
 			DataOutputStream outToClient = new DataOutputStream(connectionSocket.getOutputStream());
-			setEstadoJuego( inFromClient.readLine());
-			System.out.println("Received: " + getEstadoJuego());			
-			outToClient.writeBytes(getAccionJugador());			
+			clientSentence=inFromClient.readLine();
+			setEstadoJuego(clientSentence );
+			//System.out.println("Received: " + getEstadoJuego())
+			//Log.d("Recibiendo", clientSentence);		
+			outToClient.writeBytes(clientSentence.toUpperCase()+"\0");
+			//Log.d("Enviaando", clientSentence);	
 		}
 	}
 	public void killServer() throws IOException{
@@ -45,20 +49,31 @@ public class TCPServer {
 	}
 
 	public String getEstadoJuego() {
-		return estadoJuego;
+		synchronized (this.estadoJuego) {
+			String tmp=estadoJuego;
+			estadoJuego="";
+			return tmp+"";			
+		}
+		
 	}
 
 	public void setEstadoJuego(String estadoJuego) {
-		this.estadoJuego = estadoJuego;
+		synchronized (this.estadoJuego) {
+			this.estadoJuego = estadoJuego;
+		}
 	}
 
-	public synchronized String  getAccionJugador() {
-		String tmp=accionJugador;
-		accionJugador="";
-		return tmp+"";
+	public  String  getAccionJugador() {
+		synchronized (this.accionJugador) {
+			String tmp=accionJugador;
+			accionJugador="";
+			return tmp+"";
+		}
 	}
 
 	public synchronized void setAccionJugador(String accioneJugador) {
-		this.accionJugador = accioneJugador;
+		synchronized (this.accionJugador) {
+			this.accionJugador = accioneJugador;
+		}
 	}
 } 
