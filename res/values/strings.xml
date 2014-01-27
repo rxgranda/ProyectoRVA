@@ -7,11 +7,11 @@
     <string name="title_activity_splash_screen">SplashScreen</string>
     <string name="jugar">Jugar</string>
     <string name="about">Acerca de</string>
-     <string name="instrucciones">Instrucciones</string>
+    <string name="instrucciones">Instrucciones</string>
     <string name="title_activity_modo_juego">ModoJuegoActivity</string>
     <string name="agente1">Detective</string>
     <string name="agente2">Espía</string>
-    <string name="JugarAgente1">Jugar como Delator</string>
+    <string name="JugarAgente1">Jugar como Detective</string>
     <string name="JugarAgente2">Jugar como Espía</string>
     <string name="title_activity_tracker">TrackerActivity</string>
     <string name="escogerTracker">Escoja su Tracker:</string>
@@ -24,5 +24,6 @@
     <string name="title_activity_mapa">MapaActivity</string>
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="title_activity_map_test">MapTestActivity</string>
 
 </resources>

@@ -16,17 +16,21 @@ public class SplashScreen extends Activity {
      protected void onCreate(Bundle savedInstanceState) {
              super.onCreate(savedInstanceState);
              setContentView(R.layout.activity_splash_screen);
-             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+             setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE); 
+             final Timer timer = new Timer();
               TimerTask task = new TimerTask() {
                    @Override
                    public void run() {
-                     Intent mainIntent = new Intent().setClass(SplashScreen.this, MenuActivity.class);
-                     startActivity(mainIntent);
-                     finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+                     
+
+                       Intent mainIntent = new Intent().setClass(SplashScreen.this, MenuActivity.class);
+                       startActivity(mainIntent);
+                       finish();
+                    //Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+                    
                    }
                  };
 
-                 Timer timer = new Timer();
                  timer.schedule(task, splashDelay);//Pasado los 6 segundos dispara la tarea
      }
 	@Override

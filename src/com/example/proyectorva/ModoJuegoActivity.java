@@ -1,16 +1,22 @@
 package com.example.proyectorva;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import com.example.proyectorva.util.TCPClient;
+
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.util.Log;
 import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
 public class ModoJuegoActivity extends Activity {
-
+ 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -19,10 +25,13 @@ public class ModoJuegoActivity extends Activity {
 		Button btnDetective = (Button) findViewById(R.id.btnDetective);		
 		btnDetective.setOnClickListener(new OnClickListener() {
 	        @Override
-	        public void onClick(View v) {	           
+	        public void onClick(View v) {		            
+	            
+	            
 	        	Intent mainIntent = new Intent().setClass(ModoJuegoActivity.this, EsperandoActivity.class);
-                startActivity(mainIntent);
-                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+	        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_DETECTIVE +"");
+	        	startActivity(mainIntent);
+                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
          
 	        }
 	    });
@@ -30,10 +39,12 @@ public class ModoJuegoActivity extends Activity {
 		Button btnEspia = (Button) findViewById(R.id.btnEspia);		
 		btnEspia.setOnClickListener(new OnClickListener() {
 	        @Override
-	        public void onClick(View v) {	           
+	        public void onClick(View v) {	
+	        //	joinGame(MODO_ESPIA);
 	        	Intent mainIntent = new Intent().setClass(ModoJuegoActivity.this, TrackerActivity.class);
-                startActivity(mainIntent);
-                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+	        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_ESPIA+"");
+	        	startActivity(mainIntent);
+                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
          
 	        }
 	    });
@@ -45,5 +56,6 @@ public class ModoJuegoActivity extends Activity {
 		getMenuInflater().inflate(R.menu.modo_juego, menu);
 		return true;
 	}
+	
 
 }

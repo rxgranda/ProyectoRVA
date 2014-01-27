@@ -31,7 +31,7 @@ public class MenuActivity extends Activity {
 	        public void onClick(View v) {	           
 	        	Intent mainIntent = new Intent().setClass(MenuActivity.this, ModoJuegoActivity.class);
                 startActivity(mainIntent);
-                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
          
 	        }
 	    });
