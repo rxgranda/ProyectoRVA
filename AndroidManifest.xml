@@ -21,14 +21,15 @@
             android:name="com.example.proyectorva.SplashScreen"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+          
         </activity>
          <activity
             android:name="com.example.proyectorva.MenuActivity"
             android:label="@string/jugar" >
+              <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.example.proyectorva.ModoJuegoActivity"

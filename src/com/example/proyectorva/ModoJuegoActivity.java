@@ -14,6 +14,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class ModoJuegoActivity extends Activity {
  
@@ -22,7 +23,7 @@ public class ModoJuegoActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_modo_juego);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		Button btnDetective = (Button) findViewById(R.id.btnDetective);		
+		ImageButton btnDetective = (ImageButton) findViewById(R.id.btnDetective);		
 		btnDetective.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {		            
@@ -36,7 +37,7 @@ public class ModoJuegoActivity extends Activity {
 	        }
 	    });
 		
-		Button btnEspia = (Button) findViewById(R.id.btnEspia);		
+		ImageButton btnEspia = (ImageButton) findViewById(R.id.btnEspia);		
 		btnEspia.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {	

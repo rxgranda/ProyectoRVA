@@ -68,7 +68,7 @@ public class MapTestActivity extends Activity {
 							else
 								jugadorP.setPosX(x); 
 							jugadorP.setPosY(y);
-							//Log.d("pos X= Y=", x+" "+y);	
+							Log.d("pos X= Y=", x+" "+y);	
 						}
 					} catch (JSONException e) {
 						// TODO Auto-generated catch block

@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class TrackerActivity extends Activity {
 
@@ -16,7 +17,7 @@ public class TrackerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tracker);
 		 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		 Button btnTracker1 = (Button) findViewById(R.id.btnTracker1);		
+		 ImageButton btnTracker1 = (ImageButton) findViewById(R.id.btnTracker1);		
 		 btnTracker1.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           
@@ -26,7 +27,7 @@ public class TrackerActivity extends Activity {
 	         
 		        }
 		    });
-		 Button btnTracker2 = (Button) findViewById(R.id.btnTracker2);		
+		 ImageButton btnTracker2 = (ImageButton) findViewById(R.id.btnTracker2);		
 		 btnTracker2.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           
@@ -36,7 +37,7 @@ public class TrackerActivity extends Activity {
 	         
 		        }
 		    });
-		 Button btnTracker3 = (Button) findViewById(R.id.btnTracker3);		
+		 ImageButton btnTracker3 = (ImageButton) findViewById(R.id.btnTracker3);		
 		 btnTracker3.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           

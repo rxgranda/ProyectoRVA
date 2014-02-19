@@ -22,6 +22,7 @@ public class TCPServer {
 			clientSentence = inFromClient.readLine();
 			System.out.println("Received: " + clientSentence);
 			capitalizedSentence = clientSentence+'\n';
+			Log.d("RESPUESTA A INICIO DE JUEGO", "INICIO DE JUEGO");		
 			outToClient.writeBytes(capitalizedSentence+"\0");
 			return clientSentence;
 		}

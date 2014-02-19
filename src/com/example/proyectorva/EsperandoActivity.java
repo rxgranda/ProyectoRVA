@@ -97,10 +97,11 @@ public class EsperandoActivity extends Activity {
 		}
 		@Override
 		protected Boolean doInBackground(Integer... params) {
-			for(Integer modo:params){
+			
+	
 				String id_jugador="";
 				try {
-					id_jugador = joinGame(modo);
+					id_jugador = joinGame(params[0]);
 				} catch (Exception e) {				
 					mensaje_error();
 					regresar_modo_juego();
@@ -124,13 +125,13 @@ public class EsperandoActivity extends Activity {
 					regresar_modo_juego();
 					return false;
 				}else{
-				
+					 Log.d("INICIOOOOOOOOOOO", "JUEGO INICIADO");
 				Intent mainIntent = new Intent().setClass(EsperandoActivity.this, MapTestActivity.class);
 	               startActivity(mainIntent);
 	               finish();	return true;}										
 				
-			}
-			return false;
+			
+			
 		}
 		public String joinGame(int modo) throws Exception{
 			try {

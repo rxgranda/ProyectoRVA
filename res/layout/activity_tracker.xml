@@ -7,48 +7,66 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@drawable/escojatrack"
     tools:context=".TrackerActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
+   
+
+         <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:text="@string/escogerTracker" />
+        android:layout_centerHorizontal="true" >
+      
+          
+    
 
-     <LinearLayout
-         android:id="@+id/linearLayout1"
-         android:layout_width="wrap_content"
-         android:layout_height="wrap_content"
-         android:layout_below="@+id/textView1"
-         android:layout_centerHorizontal="true"
-         android:layout_marginTop="22dp"
-         android:orientation="horizontal" >
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:paddingRight="200dp"
+        android:gravity="end" >
 
-         <Button
+     
+
+        <LinearLayout
+            android:paddingTop="130dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"  
+            android:orientation="vertical" >
+                     <ImageButton
              android:id="@+id/btnTracker1"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
+             android:layout_width="220dp"
+             android:layout_height="60dp"
              android:layout_gravity="center_horizontal"
-             android:layout_marginTop="50dp"
+             android:layout_marginTop="10dp"
+             android:background="@drawable/botont1"
              android:text="@string/tracker1" />
 
-         <Button
+         <ImageButton
              android:id="@+id/btnTracker2"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
+             android:layout_width="220dp"
+             android:layout_height="60dp"
              android:layout_gravity="center_horizontal"
-             android:layout_marginTop="50dp"
+             android:layout_marginTop="10dp"
+              android:background="@drawable/botont2"
              android:text="@string/tracker2" />
 
-         <Button
+         <ImageButton
              android:id="@+id/btnTracker3"
-             android:layout_width="wrap_content"
-             android:layout_height="wrap_content"
+             android:layout_width="220dp"
+             android:layout_height="60dp"
              android:layout_gravity="center_horizontal"
-             android:layout_marginTop="50dp"
+             android:layout_marginTop="10dp"
+              android:background="@drawable/botont3"
              android:text="@string/tracker3" />
-     </LinearLayout>
+            
+              </LinearLayout>
+        
+    </RelativeLayout>
+    
+</RelativeLayout>
+            
 
 </RelativeLayout>

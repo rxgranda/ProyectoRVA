@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/start"
+    android:background="@drawable/mainmenu1"
     android:gravity="center"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -15,19 +15,14 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true" >
       
-           <Button
-            android:id="@+id/btnJugar"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="50dp"
-            android:text="@string/jugar" />
-    </RelativeLayout>
+          
+    
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
+        android:paddingRight="200dp"
         android:gravity="end" >
 
      
@@ -37,23 +32,33 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"  
             android:orientation="vertical" >
-               <Button
+             <ImageButton
+            android:id="@+id/btnJugar"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
+            android:background="@drawable/boton_jugar"
+            android:text="@string/jugar" />
+               <ImageButton
             android:id="@+id/btnInstrucciones"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
+               android:background="@drawable/boton_instrucciones"
             android:text="@string/instrucciones" />
-        <Button
+        <ImageButton
             android:id="@+id/btnSalir"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="220dp"
+            android:layout_height="60dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginTop="10dp"
+               android:background="@drawable/boton_acercade"
             android:text="@string/about" />
         </LinearLayout>
         
     </RelativeLayout>
     
-
+</RelativeLayout>
 </RelativeLayout>

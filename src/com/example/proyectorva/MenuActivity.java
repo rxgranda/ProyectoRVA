@@ -8,6 +8,7 @@ import android.view.Menu;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 public class MenuActivity extends Activity {
 
@@ -16,7 +17,7 @@ public class MenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		setContentView(R.layout.activity_menu);
-		Button btnSalir = (Button) findViewById(R.id.btnSalir);		
+		ImageButton btnSalir = (ImageButton) findViewById(R.id.btnSalir);		
 		btnSalir.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {	           
@@ -25,7 +26,7 @@ public class MenuActivity extends Activity {
 	        }
 	    });
 		
-		Button btnJugar = (Button) findViewById(R.id.btnJugar);		
+		ImageButton btnJugar = (ImageButton) findViewById(R.id.btnJugar);		
 		btnJugar.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {	           
