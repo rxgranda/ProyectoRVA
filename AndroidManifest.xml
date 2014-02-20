@@ -3,10 +3,12 @@
     package="com.example.proyectorva"
     android:versionCode="1"
     android:versionName="1.0" >
-<uses-permission android:name="android.permission.INTERNET" >
-</uses-permission>
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
-</uses-permission>
+
+    <uses-permission android:name="android.permission.INTERNET" >
+    </uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" >
+    </uses-permission>
+
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="18" />
@@ -16,36 +18,36 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-       
         <activity
             android:name="com.example.proyectorva.SplashScreen"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-          
-        </activity>
-         <activity
-            android:name="com.example.proyectorva.MenuActivity"
-               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:label="@string/jugar" >
-              <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
+            android:name="com.example.proyectorva.MenuActivity"
+            android:label="@string/jugar"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            
+        </activity>
+        <activity
             android:name="com.example.proyectorva.ModoJuegoActivity"
-               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:label="@string/title_activity_modo_juego" >
+            android:label="@string/title_activity_modo_juego"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.example.proyectorva.TrackerActivity"
-               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:label="@string/title_activity_tracker" >
+            android:label="@string/title_activity_tracker"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.example.proyectorva.EsperandoActivity"
-               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
-            android:label="@string/title_activity_esperando" >
+            android:label="@string/title_activity_esperando"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
             android:name="com.example.proyectorva.MapaActivity"
@@ -55,9 +57,15 @@
         </activity>
         <activity
             android:name="com.example.proyectorva.MapTestActivity"
-            android:label="@string/title_activity_map_test" 
+            android:label="@string/title_activity_map_test"
             android:launchMode="singleTop"
-             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.example.proyectorva.LastActivity"
+            android:label="@string/title_activity_last" 
+               android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            >
         </activity>
     </application>
 

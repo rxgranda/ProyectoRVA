@@ -15,6 +15,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.util.Log;
 import android.view.Menu;
@@ -141,6 +142,13 @@ public class MapTestActivity extends Activity {
 		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.map_test, menu);
 		return true;
+	}
+	
+	public void terminarJuego(String resultado){
+		Intent mainIntent = new Intent(MapTestActivity.this, LastActivity.class);
+		mainIntent.putExtra(Player.RESULTADO, resultado +"");
+		startActivity(mainIntent);
+		
 	}
 	/*
 	private class RemoteTask extends AsyncTask<Integer, Void, Boolean> {

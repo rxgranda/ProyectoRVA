@@ -1,7 +1,7 @@
 package com.example.proyectorva;
 
 public class Player {
-	public final static String HOST="192.168.0.102";
+	public final static String HOST="192.168.43.123";
 	public final static int PUERTO=7777;
 	public final static int MODO_DETECTIVE=0;
 	public final static int MODO_ESPIA=1;
@@ -17,6 +17,10 @@ public class Player {
 	//JSON
 	public final static String ESTADO_OK="1";
 	public final static String ESTADO_WRONG="0";
+	public final static String RESULTADO="resultado";
+	public final static String RESULTADO_GANO="gano";
+	public final static String RESULTADO_PERDIO="perdio";
+	public final static String RESULTADO_ELIMINADO="eliminado";
 	
 	
 	private int id;
