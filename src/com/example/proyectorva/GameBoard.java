@@ -9,37 +9,58 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 public class GameBoard extends View {
-	private LinkedList <Player> playerList;
-	 int  p1X=0,p1Y=0, clt;
-	 private Paint p;
+	private static  LinkedList <Player> playerList;
+	 int  p1X=0,p1Y=0;
+	 static int clt=0;
+	 private static Paint p;
+	 Bitmap fondo;
 	 Bitmap jugador1;
 	public GameBoard(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		p = new Paint();
+		fondo= BitmapFactory.decodeResource(getResources(), R.drawable.lienzo2);
+
 		jugador1=BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	@Override
+	protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+	  super.onSizeChanged(w, h, oldw, oldh);
+	  fondo = Bitmap.createScaledBitmap(fondo, w, h, false);
+	}
+	
+	
 	
     @Override
 
     public  void onDraw(Canvas canvas) {
     	 super.onDraw(canvas);
-         p=new Paint();         
-         p.setColor(Color.RED);
+        // p=new Paint();         
+        // p.setColor(Color.RED);
+    	 canvas.drawBitmap(fondo, 0, 0, p);
          synchronized (this) {
         	 for(Player jugador:playerList){
         		 if(jugador.isEnabled())
         			 canvas.drawBitmap(jugador1, jugador.getPosX(), jugador.getPosY(), p);
         	 }        	
 		}
+         for(Player jugador:playerList){
+        	 Log.d("POSICIONES", "x="+jugador.getPosX()+"Y="+ jugador.getPosY());
+    			// canvas.drawBitmap(jugador1, jugador.getPosX(), jugador.getPosY(), p);
+    	 } 
         
     }
     public  void update(LinkedList<Player> jugadores) {  
     	if(clt==0)
     		this.playerList=jugadores;
+    	this.invalidate();
+    	 Log.d("QUERIENDO INICIAR", "LLLLLLLLLLLLLLLLLLLLLLL");
     	/* código de reescalamiento
     	synchronized (this) {
 	    	p1X++;

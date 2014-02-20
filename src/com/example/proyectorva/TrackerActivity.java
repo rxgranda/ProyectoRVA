@@ -31,7 +31,7 @@ public class TrackerActivity extends Activity {
 		 btnTracker2.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           
-		        	Intent mainIntent = new Intent().setClass(TrackerActivity.this, EsperandoActivity.class);
+		        	Intent mainIntent = new Intent(TrackerActivity.this, EsperandoActivity.class);
 	                startActivity(mainIntent);
 	                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
 	         
@@ -41,7 +41,7 @@ public class TrackerActivity extends Activity {
 		 btnTracker3.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           
-		        	Intent mainIntent = new Intent().setClass(TrackerActivity.this, EsperandoActivity.class);
+		        	Intent mainIntent = new Intent(TrackerActivity.this, EsperandoActivity.class);
 	                startActivity(mainIntent);
 	                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
 	         

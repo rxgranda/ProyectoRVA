@@ -30,7 +30,7 @@ public class MenuActivity extends Activity {
 		btnJugar.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {	           
-	        	Intent mainIntent = new Intent().setClass(MenuActivity.this, ModoJuegoActivity.class);
+	        	Intent mainIntent = new Intent(MenuActivity.this, ModoJuegoActivity.class);
                 startActivity(mainIntent);
                 finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
          

@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutionException;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import com.example.proyectorva.util.SocketSingleton;
 import com.example.proyectorva.util.TCPClient;
 import com.example.proyectorva.util.TCPServer;
 
@@ -16,6 +17,7 @@ import android.os.StrictMode;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.util.Log;
@@ -24,12 +26,16 @@ import android.widget.Toast;
 
 @SuppressLint("NewApi")
 public class EsperandoActivity extends Activity {
+	final Context context = this;
 	 private long splashDelay = 30000; //6 segundos
 	 private final int MODO_DETECTIVE=0;
 	 private final int MODO_ESPIA=1;
+	 static int i=0;
+	 static int j=0;
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+		
 		super.onCreate(savedInstanceState);		
 		setContentView(R.layout.activity_esperando);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
@@ -38,9 +44,12 @@ public class EsperandoActivity extends Activity {
 		Intent intent = getIntent();
 	    String message = intent.getStringExtra(Player.MODO_JUEGO);
 	    Integer modo=Integer.parseInt(message);
+	    if(j==0){
+	    	j++;
 	    RemoteTask task = new RemoteTask();
 	    task.execute(new Integer[] { modo });
 	    
+	    }
 		/* TimerTask task = new TimerTask() {
              @Override
              public void run() {
@@ -62,8 +71,8 @@ public class EsperandoActivity extends Activity {
 		return true;
 	}
 	 private class RemoteTask extends AsyncTask<Integer, Void, Boolean> {
-		 TCPServer servidor=null;
-		 TCPClient cliente;
+		
+		 SocketSingleton socket;
 		void mensaje_error(){
 			runOnUiThread(new Runnable() {
 				public void run() {
@@ -90,15 +99,15 @@ public class EsperandoActivity extends Activity {
 		}
 		public void regresar_modo_juego(){
 			///////REVISAR
-			Intent mainIntent = new Intent().setClass(EsperandoActivity.this, ModoJuegoActivity.class);
-			startActivity(mainIntent);
+			//Intent mainIntent = new Intent().setClass(EsperandoActivity.this, ModoJuegoActivity.class);
+			//startActivity(mainIntent);
 			///////REVISAR
 			finish();
 		}
 		@Override
 		protected Boolean doInBackground(Integer... params) {
 			
-	
+		
 				String id_jugador="";
 				try {
 					id_jugador = joinGame(params[0]);
@@ -126,19 +135,26 @@ public class EsperandoActivity extends Activity {
 					return false;
 				}else{
 					 Log.d("INICIOOOOOOOOOOO", "JUEGO INICIADO");
-				Intent mainIntent = new Intent().setClass(EsperandoActivity.this, MapTestActivity.class);
-	               startActivity(mainIntent);
-	               finish();	return true;}										
+					 if(i==0){
+						 synchronized (this) {
+							 i++;
+							 Intent mainIntent = new Intent(context, MapTestActivity.class);
+				               startActivity(mainIntent);}
+				               finish();
+							 
+						}
+						 
+					return true;}										
 				
 			
 			
 		}
 		public String joinGame(int modo) throws Exception{
 			try {
-				cliente= new TCPClient();
+				socket= SocketSingleton.getInstance();
 	            JSONObject request = new JSONObject();            
 	            request.put(Player.MODO_JUEGO, modo+"");
-	            String responseString= cliente.sendRequest(request.toString(2));
+	            String responseString= socket.enviarMensaje(request.toString(2));
 	            Log.d("REQUEST", request.toString(2));
 	            Log.d("RESPONSE", responseString);
 	            JSONObject response = new JSONObject(responseString);  
@@ -163,13 +179,12 @@ public class EsperandoActivity extends Activity {
 		}
 		public boolean waitForStartGame(){
 			try {       				
-				servidor=new TCPServer();
-				 Log.d("NOOOOO", "KILLLLLL");
+				socket=SocketSingleton.getInstance();
+				Thread.sleep(1000);
 				   Log.d("Abriendo", "ABRIENDOOOOOOOOOOO");
-				String responseString=servidor.openServer();
+				String responseString=socket.enviarMensaje("i");
 	            JSONObject response = new JSONObject(responseString);  
-	            String estado_juego=response.getString(Player.INICIO_JUEGO_TAG);
-	            servidor.killServer();
+	            String estado_juego=response.getString(Player.INICIO_JUEGO_TAG);	           
 	            Log.d("Abriendo", "RESPUESTAAAAA");
 	            if(estado_juego.equals(Player.ESTADO_OK)){	            	
 	            	 return true;

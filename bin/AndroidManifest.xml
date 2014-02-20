@@ -25,6 +25,7 @@
         </activity>
          <activity
             android:name="com.example.proyectorva.MenuActivity"
+               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/jugar" >
               <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,14 +34,17 @@
         </activity>
         <activity
             android:name="com.example.proyectorva.ModoJuegoActivity"
+               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_modo_juego" >
         </activity>
         <activity
             android:name="com.example.proyectorva.TrackerActivity"
+               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_tracker" >
         </activity>
         <activity
             android:name="com.example.proyectorva.EsperandoActivity"
+               android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
             android:label="@string/title_activity_esperando" >
         </activity>
         <activity
@@ -52,6 +56,7 @@
         <activity
             android:name="com.example.proyectorva.MapTestActivity"
             android:label="@string/title_activity_map_test" 
+            android:launchMode="singleTop"
              android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
     </application>
