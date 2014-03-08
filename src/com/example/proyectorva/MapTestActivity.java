@@ -17,6 +17,7 @@ import android.os.Message;
 import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Rect;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
@@ -24,7 +25,7 @@ import android.widget.Toast;
 public class MapTestActivity extends Activity {
 	
 	 SocketSingleton servidor;
-	//private GameBoard game;
+	
 	private static LinkedList <Player> playerList;
 	private int PLAYERS_NUMBER=3;
 	/////////////////////////
@@ -61,15 +62,18 @@ public class MapTestActivity extends Activity {
             		
             		 socket=servidor.getInstance();
             		 JSONObject request = new JSONObject();            
-     	            request.put("pos", "1");
-            	 String estado=socket.enviarMensaje("pos");
+     	            request.put("tipo_mensaje", "2");
+     	           request.put("seleccionado", 1);
+     	          Log.d("PIDIENDO", "PIDIENDO");
+            	 String estado=socket.enviarMensaje(request.toString(2));
+            	   Log.d("RECIBIENDO", estado);
             	 if(!estado.equals("")){
             		 JSONObject response;
             		
 						response = new JSONObject(estado);
 						JSONArray estado_juego=response.getJSONArray(Player.JUGADORES_TAG);
-						for(int i=0 ;i<estado_juego.length();i++){
-							
+						//for(int i=0 ;i<estado_juego.length();i++){
+						for(int i=0 ;i<3;i++){
 							JSONObject jugador=estado_juego.getJSONObject(i);
 							int x=jugador.getInt(Player.X_TAG);
 							int y=jugador.getInt(Player.Y_TAG);
@@ -150,6 +154,14 @@ public class MapTestActivity extends Activity {
 		startActivity(mainIntent);
 		
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 	/*
 	private class RemoteTask extends AsyncTask<Integer, Void, Boolean> {
 		

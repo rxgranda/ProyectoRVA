@@ -152,8 +152,10 @@ public class EsperandoActivity extends Activity {
 		public String joinGame(int modo) throws Exception{
 			try {
 				socket= SocketSingleton.getInstance();
-	            JSONObject request = new JSONObject();            
+	            JSONObject request = new JSONObject(); 
+	            request.put("tipo_mensaje", "0");
 	            request.put(Player.MODO_JUEGO, modo+"");
+	           
 	            String responseString= socket.enviarMensaje(request.toString(2));
 	            Log.d("REQUEST", request.toString(2));
 	            Log.d("RESPONSE", responseString);
@@ -182,7 +184,12 @@ public class EsperandoActivity extends Activity {
 				socket=SocketSingleton.getInstance();
 				Thread.sleep(1000);
 				   Log.d("Abriendo", "ABRIENDOOOOOOOOOOO");
-				String responseString=socket.enviarMensaje("i");
+				   JSONObject request = new JSONObject(); 
+		            request.put("tipo_mensaje", "1");
+		           // Thread.sleep(200000);
+				String responseString=socket.enviarMensaje(request.toString(2));
+				 Log.d("PRegunta 2",request.toString(2) );
+				 Log.d("RESPUETA 2",responseString );
 	            JSONObject response = new JSONObject(responseString);  
 	            String estado_juego=response.getString(Player.INICIO_JUEGO_TAG);	           
 	            Log.d("Abriendo", "RESPUESTAAAAA");
