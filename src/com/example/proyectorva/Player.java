@@ -1,7 +1,9 @@
 package com.example.proyectorva;
 
 public class Player {
+
 	public final static String HOST="192.168.65.126";//"192.168.43.172";
+
 	public final static int PUERTO=7777;
 	public final static int MODO_DETECTIVE=0;
 	public final static int MODO_ESPIA=1;

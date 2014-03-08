@@ -135,14 +135,17 @@ public class EsperandoActivity extends Activity {
 					return false;
 				}else{
 					 Log.d("INICIOOOOOOOOOOO", "JUEGO INICIADO");
+					 synchronized (this) {
 					 if(i==0){
-						 synchronized (this) {
+						
 							 i++;
 							 Intent mainIntent = new Intent(context, MapTestActivity.class);
-				               startActivity(mainIntent);}
+				               startActivity(mainIntent);
 				               finish();
+				               return true;
 							 
 						}
+					 }
 						 
 					return true;}										
 				
@@ -211,6 +214,9 @@ public class EsperandoActivity extends Activity {
 		 
 	 }
 	
+	 
+	 
+	 
 	
 
 }
