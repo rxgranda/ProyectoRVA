@@ -56,10 +56,10 @@ public class GameBoard extends View {
         	 int k=0;
         	 for(Player jugador:playerList){
         		 if(jugador.isEnabled()){
-        			 if(k!=0)
-        			 canvas.drawBitmap(jugador1, jugador.getPosX(), jugador.getPosY(), p);
-        			 else
-        				 rect.set(jugador.getPosX(), jugador.getPosY(), jugador.getPosX()+50,  jugador.getPosY()+50);
+        			 //if(k!=0)        			         			        			 
+        			 canvas.drawBitmap(jugador1, jugador.getPosX(),jugador.getPosY(), p);
+        			 //else
+        				// rect.set(jugador.getPosX(), jugador.getPosY(), jugador.getPosX()+50,  jugador.getPosY()+50);
         		 	k++;
         		 	}
         		 }        	
@@ -85,4 +85,8 @@ public class GameBoard extends View {
     	}*/
     }
 
+    
+    
+    
+ 
 }

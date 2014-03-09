@@ -156,9 +156,13 @@ public class EsperandoActivity extends Activity {
 			try {
 				socket= SocketSingleton.getInstance();
 	            JSONObject request = new JSONObject(); 
+	            //request.put("tipo_mensaje", "0");
+	            //request.put(Player.MODO_JUEGO, modo+"");
 	            request.put("tipo_mensaje", "0");
-	            request.put(Player.MODO_JUEGO, modo+"");
-	           
+	            request.put(Player.MODO_JUEGO, "1");
+	            request.put("nombre_tracker", "Ojos");
+	            
+	            
 	            String responseString= socket.enviarMensaje(request.toString(2));
 	            Log.d("REQUEST", request.toString(2));
 	            Log.d("RESPONSE", responseString);

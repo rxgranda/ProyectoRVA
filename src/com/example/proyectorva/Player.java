@@ -3,7 +3,7 @@ package com.example.proyectorva;
 public class Player {
 
 	public final static String HOST="192.168.65.126";//"192.168.43.172";
-
+	public final static int PLAYERS_NUMBER=4;
 	public final static int PUERTO=7777;
 	public final static int MODO_DETECTIVE=0;
 	public final static int MODO_ESPIA=1;
@@ -16,9 +16,10 @@ public class Player {
 	public final static String JUGADORES_TAG="jugadores";
 	public final static String X_TAG="x";
 	public final static String Y_TAG="y";
+	public final static String ROBOT_TAG="robot";
 	//JSON
 	public final static String ESTADO_OK="1";
-	public final static String ESTADO_WRONG="0";
+	public final static String ESTADO_WRONG="-100";
 	public final static String RESULTADO="resultado";
 	public final static String RESULTADO_GANO="gano";
 	public final static String RESULTADO_PERDIO="perdio";

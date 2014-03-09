@@ -27,7 +27,7 @@ public class MapTestActivity extends Activity {
 	 SocketSingleton servidor;
 	
 	private static LinkedList <Player> playerList;
-	private int PLAYERS_NUMBER=3;
+
 	/////////////////////////
 	int x1,x2,x3;
 	int y1=50,y2=100,y3=150;
@@ -73,14 +73,25 @@ public class MapTestActivity extends Activity {
 						response = new JSONObject(estado);
 						JSONArray estado_juego=response.getJSONArray(Player.JUGADORES_TAG);
 						//for(int i=0 ;i<estado_juego.length();i++){
-						for(int i=0 ;i<3;i++){
+						for(int i=0 ;i<Player.PLAYERS_NUMBER;i++){
 							JSONObject jugador=estado_juego.getJSONObject(i);
-							int x=jugador.getInt(Player.X_TAG);
-							int y=jugador.getInt(Player.Y_TAG);
+							int x,y; double xD,yD;
 							Player jugadorP=playerList.get(i);
-							if(i==1)
-								jugadorP.setPosX(600-x); 
-							else
+							//if(i==1)
+								//jugadorP.setPosX(600-x); 
+							//else
+							 if (jugador.getInt(Player.ROBOT_TAG)==0)
+		        			 {
+								 xD=jugador.getDouble(Player.X_TAG);
+								 yD=jugador.getDouble(Player.Y_TAG);
+								 x = (int)(xD*120 + 450);
+		        			 	 y = (int)(yD*175 + 100 );
+		        			 }
+		        			 else{
+		        				 x=jugador.getInt(Player.X_TAG);
+							     y=jugador.getInt(Player.Y_TAG);
+		        				
+		        			 }
 								jugadorP.setPosX(x); 
 							jugadorP.setPosY(y);
 							//Log.d("pos X= Y=", x+" "+y);	
@@ -115,7 +126,7 @@ public class MapTestActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		 //game = new GameBoard(this);	
 		playerList=playerList=new LinkedList<Player>();
-		for (int i=0;i<PLAYERS_NUMBER;i++){
+		for (int i=0;i<Player.PLAYERS_NUMBER;i++){
 			Player jugador=new Player(i+1);
 			playerList.add(jugador);
 		}
