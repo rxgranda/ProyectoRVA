@@ -14,10 +14,17 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.preference.Preference;
+import android.animation.ValueAnimator;
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.ActivityInfo;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Rect;
+import android.graphics.drawable.BitmapDrawable;
+import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.Toast;
@@ -32,6 +39,9 @@ public class MapTestActivity extends Activity {
 	int x1,x2,x3;
 	int y1=50,y2=100,y3=150;
 	/////////////////////////
+
+	
+	
 	 static int i=0;
     public Handler updateHandler = new Handler(){
         /** Gets called on every message that is received */
@@ -47,14 +57,16 @@ public class MapTestActivity extends Activity {
     		//b.setPosX(600-x2); b.setPosY(y2);
     		//c.setPosX(x3); c.setPosY(y3);    		
         
-        	//((GameBoard)findViewById(R.id.canvas)).update(playerList);  
-        	 ((GameBoard)findViewById(R.id.canvas)).invalidate(); 
+        	((GameBoard)findViewById(R.id.canvas)).update(playerList);  
+        	 //((GameBoard)findViewById(R.id.canvas)).invalidate(); 
             super.handleMessage(msg);
         }
     };
  
     public class UpdateThread implements Runnable {  
     	 SocketSingleton socket;
+    	
+    	
         @Override
         public void run() {
              while(true){
@@ -63,10 +75,10 @@ public class MapTestActivity extends Activity {
             		 socket=servidor.getInstance();
             		 JSONObject request = new JSONObject();            
      	            request.put("tipo_mensaje", "2");
-     	           request.put("seleccionado", 1);
-     	          Log.d("PIDIENDO", "PIDIENDO");
+     	           request.put("seleccionado", Player.seleccionado("-1"));
+     	         // Log.d("PIDIENDO", "PIDIENDO");
             	 String estado=socket.enviarMensaje(request.toString(2));
-            	   Log.d("RECIBIENDO", estado);
+            	  // Log.d("RECIBIENDO", estado);
             	 if(!estado.equals("")){
             		 JSONObject response;
             		
@@ -76,7 +88,7 @@ public class MapTestActivity extends Activity {
 						for(int i=0 ;i<Player.PLAYERS_NUMBER;i++){
 							JSONObject jugador=estado_juego.getJSONObject(i);
 							int x,y; double xD,yD;
-							Player jugadorP=playerList.get(i);
+							final Player jugadorP=playerList.get(i);
 							//if(i==1)
 								//jugadorP.setPosX(600-x); 
 							//else
@@ -92,7 +104,9 @@ public class MapTestActivity extends Activity {
 							     y=jugador.getInt(Player.Y_TAG);
 		        				
 		        			 }
-								jugadorP.setPosX(x); 
+							 jugadorP.setPosXOld(jugadorP.getPosX());
+							 jugadorP.setPosYOld(jugadorP.getPosY());
+							jugadorP.setPosX(x); 
 							jugadorP.setPosY(y);
 							//Log.d("pos X= Y=", x+" "+y);	
 						}
@@ -105,12 +119,12 @@ public class MapTestActivity extends Activity {
 					}  
             	
                  MapTestActivity.this.updateHandler.sendEmptyMessage(0);
-                 try {
-					Thread.sleep(10, 0);
+                /* try {
+					Thread.sleep(100, 0);
 				} catch (InterruptedException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
-				}
+				}*/
             }
         } 
     }
@@ -126,9 +140,13 @@ public class MapTestActivity extends Activity {
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		 //game = new GameBoard(this);	
 		playerList=playerList=new LinkedList<Player>();
+		 Bitmap jugador1=BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+		BitmapDrawable mDrawable = new BitmapDrawable(this.getResources(), jugador1);
 		for (int i=0;i<Player.PLAYERS_NUMBER;i++){
-			Player jugador=new Player(i+1);
-			playerList.add(jugador);
+			Rect rect=new Rect(0, 0, 100, 100);
+			Player jugador=new Player(i+1,rect,mDrawable);
+			playerList.add(jugador);									
+			//jugador.imagen.setBounds(rect);
 		}
 		((GameBoard)findViewById(R.id.canvas)).update(playerList);
 		//Player a=playerList.get(0);
@@ -209,4 +227,6 @@ public class MapTestActivity extends Activity {
 			}
 	 }
 */
+	
+	
 }
