@@ -24,9 +24,9 @@ public class LastActivity extends Activity {
 	    if(message.equals(Player.RESULTADO_GANO))
 	    	image= getResources().getDrawable(R.drawable.gano);	    	
 	    else if(message.equals(Player.RESULTADO_ELIMINADO))
-	    	image= getResources().getDrawable(R.drawable.perdio);
-	    else 
 	    	image= getResources().getDrawable(R.drawable.eliminado);
+	    else 
+	    	image= getResources().getDrawable(R.drawable.perdio);
 	    		    	
 	    	fondo.setBackground(image);
 	    	

@@ -4,8 +4,8 @@ import android.graphics.Rect;
 import android.graphics.drawable.BitmapDrawable;
 
 public class Player {
-
-	public final static String HOST="192.168.0.101";//"192.168.43.172";
+	
+	public final static String HOST="192.168.0.102";//"192.168.43.172";
 	public final static int PLAYERS_NUMBER=4;
 	public final static int PUERTO=7777;
 	public final static int MODO_DETECTIVE=0;
@@ -25,15 +25,17 @@ public class Player {
 	public final static String X_TAG="x";
 	public final static String Y_TAG="y";
 	public final static String ROBOT_TAG="robot";
+	public final static String TIPO_MENSAJE_TAG="tipo_mensaje";
 	//JSON
 	public final static String ESTADO_OK="1";
+	public final static int  ESTADO_ELIMINADO=-1;
 	public final static String ESTADO_WRONG="-100";
 	public final static String RESULTADO="resultado";
 	public final static String RESULTADO_GANO="gano";
 	public final static String RESULTADO_PERDIO="perdio";
 	public final static String RESULTADO_ELIMINADO="eliminado";
 	
-	
+	private static int idPlayer;
 	private int id;
 	private int posX;
 	private int posY;
@@ -130,6 +132,14 @@ public int getPosYAnim() {
 
 public void setPosYAnim(int posYAnim) {
 	this.posYAnim = posYAnim;
+}
+
+public static int getIdPlayer() {
+	return idPlayer;
+}
+
+public static void setIdPlayer(int idPlayer) {
+	Player.idPlayer = idPlayer;
 }
 
 }

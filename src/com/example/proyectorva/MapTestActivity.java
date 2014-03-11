@@ -77,13 +77,16 @@ public class MapTestActivity extends Activity {
      	            request.put("tipo_mensaje", "2");
      	           request.put("seleccionado", Player.seleccionado("-1"));
      	         Log.d("PIDIENDO", "PIDIENDO");
-            	 String estado=socket.enviarMensaje(request.toString(2));
+            	 String estado=socket.enviarMensaje(request.toString());
             	   Log.d("RECIBIENDO", estado);
             	 if(!estado.equals("")){
             		 JSONObject response;
             		
 						response = new JSONObject(estado);
+						int tipo_mensaje=response.getInt(Player.TIPO_MENSAJE_TAG);
+						if(tipo_mensaje==2){
 						JSONArray estado_juego=response.getJSONArray(Player.JUGADORES_TAG);
+						
 						//for(int i=0 ;i<estado_juego.length();i++){
 						for(int i=0 ;i<Player.PLAYERS_NUMBER;i++){
 							JSONObject jugador=estado_juego.getJSONObject(i);
@@ -110,7 +113,22 @@ public class MapTestActivity extends Activity {
 							jugadorP.setPosY(y);
 							Log.d("pos X= Y=", x+" "+y);	
 						}
-						
+						}else{
+								i=1;
+							while (i<10){
+								Log.d("AQUIIIIIIIIIIII","AQUIIIIIIIIIIIIIII");
+								i++;
+							}
+							int id_jugador_ganador=response.getInt(Player.ID_JUGADOR_TAG);
+							Log.d("MENSAJEEEEEEEEEEE3",id_jugador_ganador+"");
+							if(id_jugador_ganador==Player.getIdPlayer()){
+								terminarJuego(Player.RESULTADO_GANO);
+							}else if (id_jugador_ganador==Player.ESTADO_ELIMINADO){
+								terminarJuego(Player.RESULTADO_ELIMINADO);
+							}else{
+								terminarJuego(Player.RESULTADO_PERDIO);
+							}
+						}
 						
             	 }
             	 } catch (Exception e) {
@@ -181,6 +199,7 @@ public class MapTestActivity extends Activity {
 		Intent mainIntent = new Intent(MapTestActivity.this, LastActivity.class);
 		mainIntent.putExtra(Player.RESULTADO, resultado +"");
 		startActivity(mainIntent);
+		finish();
 		
 	}
 	

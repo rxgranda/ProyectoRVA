@@ -162,7 +162,7 @@ public class EsperandoActivity extends Activity {
 	            JSONObject request = new JSONObject(); 
 	            //request.put("tipo_mensaje", "0");
 	            //request.put(Player.MODO_JUEGO, modo+"");
-	            request.put("tipo_mensaje", "0");	           
+	            request.put(Player.TIPO_MENSAJE_TAG, "0");	           
 	            request.put(Player.MODO_JUEGO, modo_juego);
 	            Log.d("MODO JUEGOO", modo_juego+"");
 	            if(modo_juego==Player.MODO_ESPIA){
@@ -175,6 +175,7 @@ public class EsperandoActivity extends Activity {
 	            Log.d("RESPONSE", responseString);
 	            JSONObject response = new JSONObject(responseString);  
 	            String estado_juego=response.getString(Player.ESTADO_TAG);
+	            Player.setIdPlayer((int)response.getInt(Player.ID_JUGADOR_TAG));// ASIGNAR ID
 	            if(estado_juego.equals(Player.ESTADO_OK)){
 	            	String id_jugador=response.getString(Player.ID_JUGADOR_TAG);
 	            	 Log.d("SIIIIIIIIIIIII", "SI ENTROOOOO");
