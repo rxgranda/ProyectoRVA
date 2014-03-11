@@ -17,12 +17,23 @@ public class MenuActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		setContentView(R.layout.activity_menu);
-		ImageButton btnSalir = (ImageButton) findViewById(R.id.btnSalir);		
+		ImageButton btnSalir = (ImageButton) findViewById(R.id.btnDesarrolladores);		
 		btnSalir.setOnClickListener(new OnClickListener() {
 	        @Override
 	        public void onClick(View v) {	           
-	            finish();
-	            System.exit(0);
+	        	Intent mainIntent = new Intent(MenuActivity.this, DesarrolladoresActivity.class);
+                startActivity(mainIntent);
+               
+	        }
+	    });
+		
+		ImageButton btnIstrucciones = (ImageButton) findViewById(R.id.btnInstrucciones);		
+		btnIstrucciones.setOnClickListener(new OnClickListener() {
+	        @Override
+	        public void onClick(View v) {	           
+	        	Intent mainIntent = new Intent(MenuActivity.this, InstruccionActivity.class);
+               startActivity(mainIntent);
+               
 	        }
 	    });
 		

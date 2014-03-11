@@ -32,7 +32,6 @@
             android:name="com.example.proyectorva.MenuActivity"
             android:label="@string/jugar"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-            
         </activity>
         <activity
             android:name="com.example.proyectorva.ModoJuegoActivity"
@@ -63,9 +62,18 @@
         </activity>
         <activity
             android:name="com.example.proyectorva.LastActivity"
-            android:label="@string/title_activity_last" 
-               android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
-            >
+            android:label="@string/title_activity_last"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.example.proyectorva.DesarrolladoresActivity"
+            android:label="@string/title_activity_desarrolladores"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="com.example.proyectorva.InstruccionActivity"
+             android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:label="@string/title_activity_instruccion" >
         </activity>
     </application>
 

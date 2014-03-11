@@ -17,13 +17,18 @@ public class TrackerActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_tracker);
 		 setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		 
+		
 		 ImageButton btnTracker1 = (ImageButton) findViewById(R.id.btnTracker1);		
 		 btnTracker1.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           
-		        	Intent mainIntent = new Intent().setClass(TrackerActivity.this, EsperandoActivity.class);
-	                startActivity(mainIntent);
-	                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+		        	Intent mainIntent = new Intent(TrackerActivity.this, EsperandoActivity.class);
+		        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_ESPIA +"");
+		        	mainIntent.putExtra(Player.TRACKER_ID, Player.TRACKER1);		        	
+		        	startActivity(mainIntent);
+		       
+	                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
 	         
 		        }
 		    });
@@ -32,8 +37,10 @@ public class TrackerActivity extends Activity {
 		        @Override
 		        public void onClick(View v) {	           
 		        	Intent mainIntent = new Intent(TrackerActivity.this, EsperandoActivity.class);
-	                startActivity(mainIntent);
-	                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+		        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_ESPIA +"");
+		        	mainIntent.putExtra(Player.TRACKER_ID, Player.TRACKER2);		
+		        	startActivity(mainIntent);
+	                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
 	         
 		        }
 		    });
@@ -42,8 +49,10 @@ public class TrackerActivity extends Activity {
 		        @Override
 		        public void onClick(View v) {	           
 		        	Intent mainIntent = new Intent(TrackerActivity.this, EsperandoActivity.class);
-	                startActivity(mainIntent);
-	                //finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
+		        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_ESPIA +"");
+		        	mainIntent.putExtra(Player.TRACKER_ID, Player.TRACKER3);		
+		        	startActivity(mainIntent);
+	                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
 	         
 		        }
 		    });

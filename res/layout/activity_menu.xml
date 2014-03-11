@@ -51,7 +51,7 @@
                android:background="@drawable/boton_instrucciones"
             android:text="@string/instrucciones" />
         <ImageButton
-            android:id="@+id/btnSalir"
+            android:id="@+id/btnDesarrolladores"
             android:layout_width="440dp"
             android:layout_height="100dp"
             android:layout_marginLeft="250dp"

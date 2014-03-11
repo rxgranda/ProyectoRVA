@@ -41,28 +41,33 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int botont2=0x7f020006;
         public static final int botont3=0x7f020007;
         public static final int cargando1=0x7f020008;
-        public static final int eliminado=0x7f020009;
-        public static final int escojatrack=0x7f02000a;
-        public static final int gano=0x7f02000b;
-        public static final int ic_launcher=0x7f02000c;
-        public static final int lienzo=0x7f02000d;
-        public static final int lienzo2=0x7f02000e;
-        public static final int mainmenu1=0x7f02000f;
-        public static final int perdio=0x7f020010;
-        public static final int puntaje=0x7f020011;
-        public static final int start=0x7f020012;
-        public static final int start1=0x7f020013;
-        public static final int start2=0x7f020014;
-        public static final int start3=0x7f020015;
-        public static final int untaje=0x7f020016;
+        public static final int desarrolladores=0x7f020009;
+        public static final int eliminado=0x7f02000a;
+        public static final int escojatrack=0x7f02000b;
+        public static final int gano=0x7f02000c;
+        public static final int ic_launcher=0x7f02000d;
+        public static final int ic_launcher_presionado=0x7f02000e;
+        public static final int instrucciones=0x7f02000f;
+        public static final int lienzo=0x7f020010;
+        public static final int lienzo2=0x7f020011;
+        public static final int lienzoagente=0x7f020012;
+        public static final int lienzoespia=0x7f020013;
+        public static final int mainmenu1=0x7f020014;
+        public static final int perdio=0x7f020015;
+        public static final int puntaje=0x7f020016;
+        public static final int start=0x7f020017;
+        public static final int start1=0x7f020018;
+        public static final int start2=0x7f020019;
+        public static final int start3=0x7f02001a;
+        public static final int untaje=0x7f02001b;
     }
     public static final class id {
         public static final int action_settings=0x7f090012;
+        public static final int btnDesarrolladores=0x7f09000b;
         public static final int btnDetective=0x7f09000c;
         public static final int btnEspia=0x7f09000d;
         public static final int btnInstrucciones=0x7f09000a;
         public static final int btnJugar=0x7f090009;
-        public static final int btnSalir=0x7f09000b;
         public static final int btnTracker1=0x7f09000f;
         public static final int btnTracker2=0x7f090010;
         public static final int btnTracker3=0x7f090011;
@@ -78,23 +83,28 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int textView1=0x7f090003;
     }
     public static final class layout {
-        public static final int activity_esperando=0x7f030000;
-        public static final int activity_last=0x7f030001;
-        public static final int activity_map_test=0x7f030002;
-        public static final int activity_mapa=0x7f030003;
-        public static final int activity_menu=0x7f030004;
-        public static final int activity_modo_juego=0x7f030005;
-        public static final int activity_splash_screen=0x7f030006;
-        public static final int activity_tracker=0x7f030007;
+        public static final int activity_desarrolladores=0x7f030000;
+        public static final int activity_esperando=0x7f030001;
+        public static final int activity_instruccion=0x7f030002;
+        public static final int activity_last=0x7f030003;
+        public static final int activity_map_test=0x7f030004;
+        public static final int activity_mapa=0x7f030005;
+        public static final int activity_menu=0x7f030006;
+        public static final int activity_modo_juego=0x7f030007;
+        public static final int activity_splash_screen=0x7f030008;
+        public static final int activity_tracker=0x7f030009;
     }
     public static final class menu {
-        public static final int esperando=0x7f080000;
-        public static final int last=0x7f080001;
-        public static final int map_test=0x7f080002;
-        public static final int menu=0x7f080003;
-        public static final int modo_juego=0x7f080004;
-        public static final int splash_screen=0x7f080005;
-        public static final int tracker=0x7f080006;
+        public static final int desarrolladores=0x7f080000;
+        public static final int esperando=0x7f080001;
+        public static final int instruccion=0x7f080002;
+        public static final int instrucciones=0x7f080003;
+        public static final int last=0x7f080004;
+        public static final int map_test=0x7f080005;
+        public static final int menu=0x7f080006;
+        public static final int modo_juego=0x7f080007;
+        public static final int splash_screen=0x7f080008;
+        public static final int tracker=0x7f080009;
     }
     public static final class string {
         public static final int JugarAgente1=0x7f06000a;
@@ -112,7 +122,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int hello_world=0x7f060002;
         public static final int instrucciones=0x7f060006;
         public static final int jugar=0x7f060004;
+        public static final int title_activity_desarrolladores=0x7f06001a;
         public static final int title_activity_esperando=0x7f060011;
+        public static final int title_activity_instruccion=0x7f06001b;
+        public static final int title_activity_instrucciones=0x7f060019;
         public static final int title_activity_last=0x7f060018;
         public static final int title_activity_map_test=0x7f060017;
         public static final int title_activity_mapa=0x7f060014;

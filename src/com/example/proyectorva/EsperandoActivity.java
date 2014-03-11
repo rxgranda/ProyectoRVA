@@ -28,8 +28,8 @@ import android.widget.Toast;
 public class EsperandoActivity extends Activity {
 	final Context context = this;
 	 private long splashDelay = 30000; //6 segundos
-	 private final int MODO_DETECTIVE=0;
-	 private final int MODO_ESPIA=1;
+	 Integer modo_juego;
+	 String tracker_id;
 	 static int i=0;
 	 static int j=0;
 	@SuppressLint("NewApi")
@@ -43,11 +43,15 @@ public class EsperandoActivity extends Activity {
 		
 		Intent intent = getIntent();
 	    String message = intent.getStringExtra(Player.MODO_JUEGO);
-	    Integer modo=Integer.parseInt(message);
+	    modo_juego=Integer.parseInt(message);
+	    if(modo_juego==Player.MODO_ESPIA){
+	    	tracker_id = intent.getStringExtra(Player.TRACKER_ID);
+	    }
+	    
 	    if(j==0){
 	    	j++;
 	    RemoteTask task = new RemoteTask();
-	    task.execute(new Integer[] { modo });
+	    task.execute(new Integer[] { modo_juego });
 	    
 	    }
 		/* TimerTask task = new TimerTask() {
@@ -158,10 +162,13 @@ public class EsperandoActivity extends Activity {
 	            JSONObject request = new JSONObject(); 
 	            //request.put("tipo_mensaje", "0");
 	            //request.put(Player.MODO_JUEGO, modo+"");
-	            request.put("tipo_mensaje", "0");
-	            request.put(Player.MODO_JUEGO, "1");
-	            request.put("nombre_tracker", "Ojos");
-	            
+	            request.put("tipo_mensaje", "0");	           
+	            request.put(Player.MODO_JUEGO, modo_juego);
+	            Log.d("MODO JUEGOO", modo_juego+"");
+	            if(modo_juego==Player.MODO_ESPIA){
+	            	request.put(Player.TRACKER_ID, tracker_id);
+	            	 Log.d("TRACKER ID", tracker_id+"");
+	            }
 	            
 	            String responseString= socket.enviarMensaje(request.toString(2));
 	            Log.d("REQUEST", request.toString(2));

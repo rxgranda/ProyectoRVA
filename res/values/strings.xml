@@ -26,5 +26,8 @@
     <string name="dummy_content">DUMMY\nCONTENT</string>
     <string name="title_activity_map_test">MapTestActivity</string>
     <string name="title_activity_last">LastActivity</string>
+    <string name="title_activity_instrucciones">InstruccionesActivity</string>
+    <string name="title_activity_desarrolladores">DesarrolladoresActivity</string>
+    <string name="title_activity_instruccion">InstruccionActivity</string>
 
 </resources>

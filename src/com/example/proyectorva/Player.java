@@ -5,12 +5,17 @@ import android.graphics.drawable.BitmapDrawable;
 
 public class Player {
 
-	public final static String HOST="192.168.0.102";//"192.168.43.172";
+	public final static String HOST="192.168.0.101";//"192.168.43.172";
 	public final static int PLAYERS_NUMBER=4;
 	public final static int PUERTO=7777;
 	public final static int MODO_DETECTIVE=0;
 	public final static int MODO_ESPIA=1;
+
+	public final static String TRACKER1="Ojos";
+	public final static String TRACKER2="Ojos1";
+	public final static String TRACKER3="Ojos2";
 	public final static String MODO_JUEGO="modo_juego";
+	public final static String TRACKER_ID="nombre_tracker";
 	public final static String ERROR_SERVER="ERROR";
 	//JSON
 	public final static String ESTADO_TAG="estado";

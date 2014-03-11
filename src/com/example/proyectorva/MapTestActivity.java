@@ -76,9 +76,9 @@ public class MapTestActivity extends Activity {
             		 JSONObject request = new JSONObject();            
      	            request.put("tipo_mensaje", "2");
      	           request.put("seleccionado", Player.seleccionado("-1"));
-     	         // Log.d("PIDIENDO", "PIDIENDO");
+     	         Log.d("PIDIENDO", "PIDIENDO");
             	 String estado=socket.enviarMensaje(request.toString(2));
-            	  // Log.d("RECIBIENDO", estado);
+            	   Log.d("RECIBIENDO", estado);
             	 if(!estado.equals("")){
             		 JSONObject response;
             		
@@ -108,7 +108,7 @@ public class MapTestActivity extends Activity {
 							 jugadorP.setPosYOld(jugadorP.getPosY());
 							jugadorP.setPosX(x); 
 							jugadorP.setPosY(y);
-							//Log.d("pos X= Y=", x+" "+y);	
+							Log.d("pos X= Y=", x+" "+y);	
 						}
 						
 						

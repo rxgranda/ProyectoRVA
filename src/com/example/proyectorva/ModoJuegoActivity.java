@@ -26,9 +26,7 @@ public class ModoJuegoActivity extends Activity {
 		ImageButton btnDetective = (ImageButton) findViewById(R.id.btnDetective);		
 		btnDetective.setOnClickListener(new OnClickListener() {
 	        @Override
-	        public void onClick(View v) {		            
-	            
-	            
+	        public void onClick(View v) {		            	            	          
 	        	Intent mainIntent = new Intent(ModoJuegoActivity.this, EsperandoActivity.class);
 	        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_DETECTIVE +"");
 	        	startActivity(mainIntent);
@@ -42,7 +40,7 @@ public class ModoJuegoActivity extends Activity {
 	        @Override
 	        public void onClick(View v) {	
 	        //	joinGame(MODO_ESPIA);
-	        	Intent mainIntent = new Intent().setClass(ModoJuegoActivity.this, TrackerActivity.class);
+	        	Intent mainIntent = new Intent(ModoJuegoActivity.this, TrackerActivity.class);
 	        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_ESPIA+"");
 	        	startActivity(mainIntent);
                 finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
