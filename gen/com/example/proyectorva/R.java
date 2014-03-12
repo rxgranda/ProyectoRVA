@@ -19,7 +19,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int buttonBarStyle=0x7f010000;
     }
     public static final class color {
+        public static final int azul=0x7f040002;
         public static final int black_overlay=0x7f040000;
+        public static final int rojo=0x7f040001;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -50,37 +52,41 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int instrucciones=0x7f02000f;
         public static final int lienzo=0x7f020010;
         public static final int lienzo2=0x7f020011;
-        public static final int lienzoagente=0x7f020012;
-        public static final int lienzoespia=0x7f020013;
-        public static final int mainmenu1=0x7f020014;
-        public static final int perdio=0x7f020015;
-        public static final int puntaje=0x7f020016;
-        public static final int start=0x7f020017;
-        public static final int start1=0x7f020018;
-        public static final int start2=0x7f020019;
-        public static final int start3=0x7f02001a;
-        public static final int untaje=0x7f02001b;
+        public static final int lienzo3=0x7f020012;
+        public static final int lienzoagente=0x7f020013;
+        public static final int lienzoespia=0x7f020014;
+        public static final int mainmenu1=0x7f020015;
+        public static final int perdio=0x7f020016;
+        public static final int puntaje=0x7f020017;
+        public static final int puntaje3=0x7f020018;
+        public static final int puntajeespia=0x7f020019;
+        public static final int start=0x7f02001a;
+        public static final int start1=0x7f02001b;
+        public static final int start2=0x7f02001c;
+        public static final int start3=0x7f02001d;
+        public static final int untaje=0x7f02001e;
     }
     public static final class id {
-        public static final int action_settings=0x7f090012;
-        public static final int btnDesarrolladores=0x7f09000b;
-        public static final int btnDetective=0x7f09000c;
-        public static final int btnEspia=0x7f09000d;
-        public static final int btnInstrucciones=0x7f09000a;
-        public static final int btnJugar=0x7f090009;
-        public static final int btnTracker1=0x7f09000f;
-        public static final int btnTracker2=0x7f090010;
-        public static final int btnTracker3=0x7f090011;
-        public static final int canvas=0x7f090005;
-        public static final int dummy_button=0x7f090008;
-        public static final int fullscreen_content=0x7f090006;
-        public static final int fullscreen_content_controls=0x7f090007;
-        public static final int imageView1=0x7f09000e;
-        public static final int layout=0x7f090004;
+        public static final int action_settings=0x7f090013;
+        public static final int btnDesarrolladores=0x7f09000d;
+        public static final int btnDetective=0x7f09000e;
+        public static final int btnEspia=0x7f09000f;
+        public static final int btnInstrucciones=0x7f09000c;
+        public static final int btnJugar=0x7f09000b;
+        public static final int btnTracker1=0x7f090011;
+        public static final int btnTracker2=0x7f090012;
+        public static final int canvas=0x7f090007;
+        public static final int dummy_button=0x7f09000a;
+        public static final int espiasT=0x7f090005;
+        public static final int fullscreen_content=0x7f090008;
+        public static final int fullscreen_content_controls=0x7f090009;
+        public static final int imageView1=0x7f090010;
+        public static final int layout=0x7f090006;
         public static final int linearLayout1=0x7f090000;
         public static final int progressBar1=0x7f090001;
+        public static final int puntajeESpia=0x7f090003;
+        public static final int puntajeT=0x7f090004;
         public static final int resultado=0x7f090002;
-        public static final int textView1=0x7f090003;
     }
     public static final class layout {
         public static final int activity_desarrolladores=0x7f030000;

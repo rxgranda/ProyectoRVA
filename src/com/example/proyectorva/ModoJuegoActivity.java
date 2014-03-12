@@ -28,6 +28,7 @@ public class ModoJuegoActivity extends Activity {
 	        @Override
 	        public void onClick(View v) {		            	            	          
 	        	Intent mainIntent = new Intent(ModoJuegoActivity.this, EsperandoActivity.class);
+	        	Player.setEsDetective(true);
 	        	mainIntent.putExtra(Player.MODO_JUEGO, Player.MODO_DETECTIVE +"");
 	        	startActivity(mainIntent);
                 finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.

@@ -5,8 +5,8 @@ import android.graphics.drawable.BitmapDrawable;
 
 public class Player {
 	
-	public final static String HOST="192.168.0.102";//"192.168.43.172";
-	public final static int PLAYERS_NUMBER=4;
+	public final static String HOST="192.168.65.126";//"192.168.43.172";
+	public final static int PLAYERS_NUMBER=5;
 	public final static int PUERTO=7777;
 	public final static int MODO_DETECTIVE=0;
 	public final static int MODO_ESPIA=1;
@@ -36,6 +36,9 @@ public class Player {
 	public final static String RESULTADO_ELIMINADO="eliminado";
 	
 	private static int idPlayer;
+	private static int puntaje=1000;
+	private static int espias=0;
+	private static boolean esDetective=false;
 	private int id;
 	private int posX;
 	private int posY;
@@ -43,10 +46,11 @@ public class Player {
 	private int posYAnim;
 	private int posXOld;
 	private int posYOld;
-	private  static String seleccionado="-1";
+	private  static int seleccionado=-1;
 	private boolean enabled=false;
 	Rect rectangulo;
 	BitmapDrawable imagen;
+	private boolean robot=false;
 	
 	public Player(int id,Rect rectangulo,BitmapDrawable imagen){
 		this.id=id;
@@ -95,8 +99,8 @@ public class Player {
 	public void setImagen(BitmapDrawable imagen) {
 		this.imagen = imagen;
 	}
-public static synchronized String seleccionado(String idJugador){
-	String tmp;	 
+public static synchronized int seleccionado(int idJugador){
+	int tmp;	 
 	tmp=seleccionado;
 	seleccionado=idJugador;
 	return tmp;
@@ -140,6 +144,35 @@ public static int getIdPlayer() {
 
 public static void setIdPlayer(int idPlayer) {
 	Player.idPlayer = idPlayer;
+}
+
+
+
+public static void modificarPuntaje(){
+	puntaje=puntaje-100;
+}
+
+public static void setEspias(int a){
+	espias=a;
+}
+
+public static int  getEspias(){
+	return espias;
+}
+public static boolean isEsDetective() {
+	return esDetective;
+}
+
+public static void setEsDetective(boolean esDetective) {
+	Player.esDetective = esDetective;
+}
+
+public boolean isRobot() {
+	return robot;
+}
+
+public void setRobot(boolean robot) {
+	this.robot = robot;
 }
 
 }

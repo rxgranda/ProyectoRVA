@@ -11,16 +11,34 @@
         android:orientation="vertical" >
 
         <RelativeLayout
+              android:id="@+id/puntajeESpia"
             android:layout_width="match_parent"
             android:layout_height="match_parent" 
-            android:background="@drawable/puntaje"
+            android:background="@drawable/puntaje3"
             android:layout_weight="4">
              
              <TextView
-		        android:id="@+id/textView1"
+		        android:id="@+id/puntajeT"
 		        android:layout_width="match_parent"
 		        android:layout_height="match_parent"
-		        android:text="TextView" />
+		        android:layout_marginTop="65dp"
+		        android:layout_marginLeft="530dp"
+		        android:text=""
+		 
+		        android:textColor="@color/rojo"
+		        android:textSize="20pt"
+		      />
+             
+             <TextView
+		        android:id="@+id/espiasT"
+		        android:layout_width="match_parent"
+		        android:layout_height="match_parent"
+		        android:layout_marginTop="65dp"
+		        android:layout_marginLeft="880dp"
+		        android:textSize="20pt"
+		        android:text="0"
+		        android:textColor="@color/azul"
+		   />
              
         </RelativeLayout>
 		<RelativeLayout
@@ -33,7 +51,7 @@
 			    android:id="@+id/canvas"
 			    android:layout_width="match_parent"
 			    android:layout_height="match_parent"
-			   android:background="@drawable/lienzo2"	   
+			   android:background="@drawable/lienzo3"	   
 			     />
 
 	    </RelativeLayout>

@@ -34,5 +34,6 @@
     </style>
 
     <style name="ButtonBarButton" />
-
+<color name="rojo">#00ff00</color>
+<color name="azul">#0000ff</color>
 </resources>

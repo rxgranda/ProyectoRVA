@@ -44,7 +44,7 @@ public class TrackerActivity extends Activity {
 	         
 		        }
 		    });
-		 ImageButton btnTracker3 = (ImageButton) findViewById(R.id.btnTracker3);		
+		/* ImageButton btnTracker3 = (ImageButton) findViewById(R.id.btnTracker3);		
 		 btnTracker3.setOnClickListener(new OnClickListener() {
 		        @Override
 		        public void onClick(View v) {	           
@@ -55,7 +55,7 @@ public class TrackerActivity extends Activity {
 	                finish();//Destruimos esta activity para prevenit que el usuario retorne aqui presionando el boton Atras.
 	         
 		        }
-		    });
+		    });*/
 	}
 
 	@Override

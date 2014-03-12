@@ -16,6 +16,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.TextView;
 
 public class GameBoard extends View  {
 	private static  LinkedList <Player> playerList;
@@ -24,18 +25,24 @@ public class GameBoard extends View  {
 	 private static Paint p;
 	 Bitmap fondo;
 	 Bitmap jugador1;
+	// Bitmap puntajeEspia;
+	
 	 Rect rect;
+	
 	 BitmapDrawable mDrawable;
 	public GameBoard(Context context, AttributeSet attrs) {
 		super(context, attrs);
 		p = new Paint();
 		fondo= BitmapFactory.decodeResource(getResources(), R.drawable.lienzo2);
+		//puntajeEspia=BitmapFactory.decodeResource(getResources(), R.drawable.puntajeespia);
 		
 		jugador1=BitmapFactory.decodeResource(getResources(), R.drawable.ic_launcher);
+		
 		
 		 mDrawable = new BitmapDrawable(context.getResources(), jugador1);
 			rect = new Rect(0, 0, 50, 50);
 			mDrawable.setBounds(rect);
+			
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -58,8 +65,11 @@ public class GameBoard extends View  {
     	// canvas.drawBitmap(fondo, 0, 0, p);
          synchronized (this) {
         	 int k=0;
+        	
         	 for(Player jugador:playerList){
+        		 
         		 if(jugador.isEnabled()){
+        			 
         			/* if(k!=0)        			         			        			 
         			 canvas.drawBitmap(jugador1, jugador.getPosX(),jugador.getPosY(), p);
         			 else{
@@ -67,18 +77,21 @@ public class GameBoard extends View  {
         				 mDrawable.setBounds(rect);
         			 }
         			 k++;*/
+        			 
         			 jugador.rectangulo.set(jugador.getPosXAnim(), jugador.getPosYAnim(), jugador.getPosXAnim()+100,  jugador.getPosYAnim()+100);
      				 jugador.imagen.setBounds( jugador.rectangulo);
      				jugador.imagen.draw(canvas);
         		 	}
-        		 }        	
+        		 }      
+        
 		}
         /* mDrawable.draw(canvas);
          for(Player jugador:playerList){
         	// Log.d("POSICIONES", "x="+jugador.getPosX()+"Y="+ jugador.getPosY());
     			// canvas.drawBitmap(jugador1, jugador.getPosX(), jugador.getPosY(), p);
     	 } */
-        
+      
+       
     }
     public  void update(LinkedList<Player> jugadores) {  
     	if(clt==0)
@@ -112,6 +125,7 @@ public class GameBoard extends View  {
 		    });		  
 		    va.start();
     	 }
+    
     	/* código de reescalamiento
     	synchronized (this) {
 	    	p1X++;
@@ -123,29 +137,36 @@ public class GameBoard extends View  {
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        int touchX = (int) event.getX();
-        int touchY = (int) event.getY();
-        switch(event.getAction()){
-            case MotionEvent.ACTION_DOWN:
-               // System.out.println("Touching down!");
-                for(Player jugador:playerList){
-                    if(jugador.rectangulo.contains(touchX,touchY)){
-                        //System.out.println("Touched Rectangle, start activity.");
-                    	 Log.d("HELOOOOOOOO", "TOCADO JUGADOR: "+jugador.getId());
-                    	 Player.seleccionado(jugador.getId()+""); 
-                    	 jugador.setEnabled(false);// Intent i = new Intent(<your activity info>);
-                        //startActivity(i);
-                    	 break;
-                    }
-                }
-                break;
-           /* case MotionEvent.ACTION_UP:
-            //    System.out.println("Touching up!");
-                break;
-            case MotionEvent.ACTION_MOVE:
-              //  System.out.println("Sliding your finger around on the screen.");
-                break;*/
-        }
+    	if(Player.isEsDetective()){
+    		//int espias=0;
+	        int touchX = (int) event.getX();
+	        int touchY = (int) event.getY();
+	        switch(event.getAction()){
+	            case MotionEvent.ACTION_DOWN:
+	               // System.out.println("Touching down!");
+	            	
+	                for(Player jugador:playerList){
+	                    if(jugador.rectangulo.contains(touchX,touchY)){
+	                        //System.out.println("Touched Rectangle, start activity.");
+	                    	 Log.d("HELOOOOOOOO", "TOCADO JUGADOR: "+jugador.getId());
+	                    	 Player.seleccionado(jugador.getId()); 
+	                    	// if(!jugador.isRobot())
+	               				// espias++;
+	                    	 //jugador.setEnabled(false);// Intent i = new Intent(<your activity info>);
+	                        //startActivity(i);
+	                    	 break;
+	                    }
+	                }
+	                break;
+	           /* case MotionEvent.ACTION_UP:
+	            //    System.out.println("Touching up!");
+	                break;
+	            case MotionEvent.ACTION_MOVE:
+	              //  System.out.println("Sliding your finger around on the screen.");
+	                break;*/
+	        }
+	   	 //Player.setEspias(espias);
+    	}
         return true;
     }
     
